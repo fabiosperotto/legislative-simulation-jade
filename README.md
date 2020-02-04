@@ -19,6 +19,7 @@ O arquivo config.properties descreve a configuração de acesso a ontologia lega
 ## Screenshots
 
 ![alt text](./screenshots/jade-gui.png "Jade GUI image")
+
 JADE GUI with registered agents.
 
 ![alt text](./screenshots/jade-log-fisherman-check-negative.png "Government agent log when find laws") 
