@@ -1,7 +1,5 @@
 package law_simulation;
 
-import java.util.List;
-
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
 import jade.core.behaviours.TickerBehaviour;
@@ -23,9 +21,9 @@ public class Fisherman extends Agent{
 		this.role = role;
 	}
 
+	@SuppressWarnings("serial")
 	protected void setup() {
 		System.out.println("Agent "+this.role+" is ready.");
-		
 		addBehaviour(new TickerBehaviour(this, 10000) {
 			protected void onTick() {
 				System.out.println("Trying to fish");
@@ -37,19 +35,17 @@ public class Fisherman extends Agent{
 				try {
 					DFAgentDescription[] result = DFService.search(myAgent, template); 
 					
-					if(result.length > 0) { //existe recurso de rio nas yellow pages
+					if(result.length > 0) { //exists a river resource in yellow pages
 						System.out.println("Found a river resource!");						
 						myAgent.addBehaviour(new FishPerformer());							
 						
 					}else {
 						System.out.println("River resource not found");
 					}
-					
 				}
 				catch (FIPAException fe) {
 					fe.printStackTrace();
 				}
-				
 			}
 		});
 	}
