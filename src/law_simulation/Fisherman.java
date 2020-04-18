@@ -21,7 +21,7 @@ public class Fisherman extends Agent{
 		this.role = role;
 	}
 
-	@SuppressWarnings("serial")
+
 	protected void setup() {
 		System.out.println("Agent "+this.role+" is ready.");
 		addBehaviour(new TickerBehaviour(this, 10000) {
@@ -36,11 +36,11 @@ public class Fisherman extends Agent{
 					DFAgentDescription[] result = DFService.search(myAgent, template); 
 					
 					if(result.length > 0) { //exists a river resource in yellow pages
-						System.out.println("Found a river resource!");						
+						System.out.println("Exists river access permission!");						
 						myAgent.addBehaviour(new FishPerformer());							
 						
 					}else {
-						System.out.println("River resource not found");
+						System.out.println("River access denied");
 					}
 				}
 				catch (FIPAException fe) {
